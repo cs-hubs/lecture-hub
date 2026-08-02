@@ -2,36 +2,48 @@
 <html lang="en">
 
 <head>
+
 <meta charset="UTF-8">
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>CS INFORMATION | Lecture Hub</title>
 
-<meta name="theme-color" content="#0B1020">
+<meta name="theme-color" content="#0b0b14">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
+
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 
 <link rel="stylesheet" href="style.css">
+
 </head>
 
 <body>
 
 <div id="loader">
 
-<div class="loader-content">
+<div class="loader-box">
 
 <div id="loaderLogo"></div>
 
 <h1>CS INFORMATION</h1>
 
-<p>Loading Lecture Hub...</p>
+<p>Loading Premium Lecture Hub...</p>
 
 </div>
 
 </div>
+
+<div class="aurora"></div>
+
+<div class="glass-blur blur1"></div>
+
+<div class="glass-blur blur2"></div>
+
+<div class="glass-blur blur3"></div>
 
 <div class="watermark">
 
@@ -39,7 +51,7 @@
 
 </div>
 
-<header>
+<header class="navbar">
 
 <div class="brand">
 
@@ -49,7 +61,7 @@
 
 <h2>CS INFORMATION</h2>
 
-<p>Helping Students Succeed</p>
+<span>Helping Students Succeed</span>
 
 </div>
 
@@ -69,11 +81,13 @@
 
 <a href="#movies">Movies</a>
 
+<a href="#announcement">Updates</a>
+
 <a href="#guide">Guide</a>
 
 </nav>
 
-<div class="header-buttons">
+<div class="nav-actions">
 
 <button id="themeToggle">
 
@@ -81,13 +95,21 @@
 
 </button>
 
-<a href="https://whatsapp.com/channel/0029VbAtyUeDDmFQteHb3a33" target="_blank">
+<a class="social-btn"
+
+href="https://whatsapp.com/channel/0029VbAtyUeDDmFQteHb3a33"
+
+target="_blank">
 
 WhatsApp
 
 </a>
 
-<a href="https://www.instagram.com/cs.information/" target="_blank">
+<a class="social-btn"
+
+href="https://www.instagram.com/cs.information/"
+
+target="_blank">
 
 Instagram
 
@@ -97,26 +119,39 @@ Instagram
 
 </header>
 
-<section id="home" class="hero">
+<section class="hero"
+
+id="home">
+
+<div class="hero-content">
 
 <h1>
 
-All Study Websites
-
-In One Place
+Premium Lecture Hub
 
 </h1>
 
 <p>
 
-PW • Unacademy • Movies
+All PW, Unacademy & Movie Websites
+
+in one premium place.
 
 </p>
 
+<div class="hero-search">
+
 <input
-id="search"
+
 type="text"
+
+id="search"
+
 placeholder="Search Website...">
+
+</div>
+
+</div>
 
 </section>
 
@@ -128,95 +163,237 @@ placeholder="Search Website...">
 
 </h2>
 
-<div id="favoriteContainer">
+<div
+
+id="favoriteContainer"
+
+class="cards">
 
 </div>
 
   </section>
   <section id="pw">
 
-<h2>📚 PW</h2>
+<div class="section-title">
 
-<div id="pwContainer" class="grid"></div>
+<h2>📚 PW Lectures</h2>
+
+<span>Working Websites</span>
+
+</div>
+
+<div id="pwContainer" class="cards"></div>
 
 </section>
 
 <section id="unacademy">
 
+<div class="section-title">
+
 <h2>🎓 Unacademy</h2>
 
-<div id="unacademyContainer" class="grid"></div>
+<span>Official Website</span>
+
+</div>
+
+<div id="unacademyContainer" class="cards"></div>
 
 </section>
 
 <section id="both">
 
+<div class="section-title">
+
 <h2>🔄 PW + Unacademy</h2>
 
-<div id="bothContainer" class="grid"></div>
+<span>Both Lectures Available</span>
+
+</div>
+
+<div id="bothContainer" class="cards"></div>
 
 </section>
 
 <section id="movies">
 
+<div class="section-title">
+
 <h2>🎬 Movies</h2>
 
-<div id="moviesContainer" class="grid"></div>
+<span>Entertainment</span>
+
+</div>
+
+<div id="moviesContainer" class="cards"></div>
 
 </section>
 
 <section id="announcement">
 
-<h2>📢 Announcements</h2>
+<div class="section-title">
 
-<div id="announcementBox" class="announcement-box"></div>
+<h2>📢 Latest Announcements</h2>
 
-</section>
+</div>
 
-<section id="guide">
-
-<h2>📖 Browser Guide</h2>
-
-<div class="guide-card">
-
-<h3>Recommended Browser</h3>
-
-<p>Use Microsoft Edge with AdGuard for the best experience.</p>
-
-<h3>PC Users</h3>
-
-<p>Install the AdGuard extension in Google Chrome or Microsoft Edge.</p>
-
-<h3>Movie Websites</h3>
-
-<p>If a movie website doesn't open in your region, try a trusted VPN and refresh the page.</p>
-
-<h3>Disclaimer</h3>
-
-<p>I am not the owner of any listed website. This platform only helps users organize useful study and movie resources.</p>
+<div id="announcementBox" class="announcement-card">
 
 </div>
 
 </section>
 
-<footer>
+<section id="guide">
+
+<div class="section-title">
+
+<h2>📖 Browser Guide</h2>
+
+</div>
+
+<div class="guide-grid">
+
+<div class="guide-card">
+
+<h3>🌐 Recommended Browser</h3>
+
+<p>
+
+Use Microsoft Edge with AdGuard for the best experience.
+
+</p>
+
+</div>
+
+<div class="guide-card">
+
+<h3>💻 PC Users</h3>
+
+<p>
+
+Install AdGuard Extension in Chrome or Microsoft Edge.
+
+</p>
+
+</div>
+
+<div class="guide-card">
+
+<h3>🎬 Movie Websites</h3>
+
+<p>
+
+If a movie website doesn't open, use a trusted VPN and refresh the page.
+
+</p>
+
+</div>
+
+<div class="guide-card">
+
+<h3>⚠ Disclaimer</h3>
+
+<p>
+
+I am not the owner of any listed website. This platform only helps users access publicly available resources.
+
+</p>
+
+</div>
+
+</div>
+
+  </section>
+  <footer>
+
+<div class="footer-container">
+
+<div class="footer-brand">
 
 <div id="footerLogo"></div>
 
-<h3>CS INFORMATION</h3>
+<h2>CS INFORMATION</h2>
 
 <p>Helping Students Succeed</p>
 
-<p>Version 2.1</p>
+</div>
 
-<p id="year"></p>
+<div class="footer-links">
+
+<a href="#home">Home</a>
+
+<a href="#favorite">Favourite</a>
+
+<a href="#pw">PW</a>
+
+<a href="#unacademy">Unacademy</a>
+
+<a href="#both">PW + UA</a>
+
+<a href="#movies">Movies</a>
+
+<a href="#guide">Guide</a>
+
+</div>
+
+<div class="footer-social">
+
+<a
+href="https://whatsapp.com/channel/0029VbAtyUeDDmFQteHb3a33"
+target="_blank">
+
+WhatsApp Channel
+
+</a>
+
+<a
+href="https://www.instagram.com/cs.information/"
+target="_blank">
+
+Instagram
+
+</a>
+
+</div>
+
+</div>
+
+<div class="footer-bottom">
+
+<p>
+
+© <span id="year"></span>
+
+CS INFORMATION
+
+All Rights Reserved.
+
+</p>
+
+<p>
+
+Version 2.1 Premium
+
+</p>
+
+</div>
 
 </footer>
 
+<button id="scrollTop">
+
+⬆
+
+</button>
+
+<div id="toast">
+
+</div>
+
 <script src="data.js"></script>
+
 <script src="script.js"></script>
 
 </body>
 
-                                                             </html>
-                                                             
+  </html>
+  
