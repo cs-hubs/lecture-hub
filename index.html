@@ -2,7 +2,6 @@
 <html lang="en">
 
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -16,56 +15,79 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 
 <link rel="stylesheet" href="style.css">
-
 </head>
 
 <body>
 
 <div id="loader">
 
+<div class="loader-content">
+
+<div id="loaderLogo"></div>
+
 <h1>CS INFORMATION</h1>
 
-<p>Loading...</p>
+<p>Loading Lecture Hub...</p>
+
+</div>
+
+</div>
+
+<div class="watermark">
+
+<div id="watermarkLogo"></div>
 
 </div>
 
 <header>
 
-<div class="logo">
+<div class="brand">
 
-CS INFORMATION
+<div id="headerLogo"></div>
+
+<div>
+
+<h2>CS INFORMATION</h2>
+
+<p>Helping Students Succeed</p>
+
+</div>
 
 </div>
 
 <nav>
 
+<a href="#home">Home</a>
+
+<a href="#favorite">Favourite</a>
+
 <a href="#pw">PW</a>
 
 <a href="#unacademy">Unacademy</a>
 
-<a href="#guide">Guide</a>
+<a href="#both">PW + UA</a>
 
-<a href="#announcement">Announcement</a>
+<a href="#movies">Movies</a>
+
+<a href="#guide">Guide</a>
 
 </nav>
 
-<div class="actions">
+<div class="header-buttons">
 
-<button id="themeToggle">🌙</button>
+<button id="themeToggle">
 
-<a
-class="social"
-target="_blank"
-href="https://whatsapp.com/channel/0029VbAtyUeDDmFQteHb3a33">
+🌙
+
+</button>
+
+<a href="https://whatsapp.com/channel/0029VbAtyUeDDmFQteHb3a33" target="_blank">
 
 WhatsApp
 
 </a>
 
-<a
-class="social"
-target="_blank"
-href="https://www.instagram.com/cs.information/">
+<a href="https://www.instagram.com/cs.information/" target="_blank">
 
 Instagram
 
@@ -75,106 +97,103 @@ Instagram
 
 </header>
 
-<section class="hero">
+<section id="home" class="hero">
 
 <h1>
 
 All Study Websites
+
 In One Place
 
 </h1>
 
 <p>
 
-Premium Lecture Hub
+PW • Unacademy • Movies
 
 </p>
 
 <input
-
 id="search"
-
 type="text"
-
-placeholder="Search Website..."
-
->
+placeholder="Search Website...">
 
 </section>
 
-<section id="announcement">
+<section id="favorite">
 
 <h2>
 
-Announcements
+⭐ Favourite
 
 </h2>
 
-<div id="announcementBox">
+<div id="favoriteContainer">
 
 </div>
 
-</section>
+  </section>
+  <section id="pw">
 
-<section id="pw">
+<h2>📚 PW</h2>
 
-<h2>
-
-PW Lectures
-
-</h2>
-
-<div id="pwContainer">
-
-</div>
+<div id="pwContainer" class="grid"></div>
 
 </section>
 
 <section id="unacademy">
 
-<h2>
+<h2>🎓 Unacademy</h2>
 
-Unacademy Lectures
+<div id="unacademyContainer" class="grid"></div>
 
-</h2>
+</section>
 
-<div id="unacademyContainer">
+<section id="both">
 
-</div>
+<h2>🔄 PW + Unacademy</h2>
+
+<div id="bothContainer" class="grid"></div>
+
+</section>
+
+<section id="movies">
+
+<h2>🎬 Movies</h2>
+
+<div id="moviesContainer" class="grid"></div>
+
+</section>
+
+<section id="announcement">
+
+<h2>📢 Announcements</h2>
+
+<div id="announcementBox" class="announcement-box"></div>
 
 </section>
 
 <section id="guide">
 
-<h2>
+<h2>📖 Browser Guide</h2>
 
-Browser Guide
+<div class="guide-card">
 
-</h2>
+<h3>Recommended Browser</h3>
 
-<div class="guide">
+<p>Use Microsoft Edge with AdGuard for the best experience.</p>
 
-<h3>📱 Mobile</h3>
+<h3>PC Users</h3>
 
-<ul>
+<p>Install the AdGuard extension in Google Chrome or Microsoft Edge.</p>
 
-<li>Use Microsoft Edge Browser</li>
+<h3>Movie Websites</h3>
 
-<li>Install AdGuard Extension</li>
+<p>If a movie website doesn't open in your region, try a trusted VPN and refresh the page.</p>
 
-<li>Open Websites in Edge</li>
+<h3>Disclaimer</h3>
 
-</ul>
-
-<h3>💻 PC</h3>
-
-<ul>
-
-<li>Use Chrome or Edge</li>
-
-<li>Install AdGuard Extension</li>
-
-</ul>
+<p>I am not the owner of any listed website. This platform only helps users organize useful study and movie resources.</p>
 
 </div>
 
@@ -182,26 +201,22 @@ Browser Guide
 
 <footer>
 
-<h3>
+<div id="footerLogo"></div>
 
-CS INFORMATION
+<h3>CS INFORMATION</h3>
 
-</h3>
+<p>Helping Students Succeed</p>
 
-<p>
+<p>Version 2.1</p>
 
-This website only organizes publicly available study links.
-
-I am not the owner of any listed website.
-
-</p>
+<p id="year"></p>
 
 </footer>
 
 <script src="data.js"></script>
-
 <script src="script.js"></script>
 
 </body>
 
-  </html>
+                                                             </html>
+                                                             
