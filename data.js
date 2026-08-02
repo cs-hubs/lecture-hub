@@ -1,158 +1,104 @@
-/* ==========================================
-   CS INFORMATION
-   Website Data
-========================================== */
+const DATA = {
 
-const SETTINGS = {
+announcement:[
 
-    whatsapp:
-    "https://whatsapp.com/channel/0029VbAtyUeDDmFQteHb3a33",
+"I am not the owner of any listed website.",
 
-    instagram:
-    "https://www.instagram.com/cs.information/",
+"If a website is temporarily unavailable, please try again later.",
 
-    browser:
+"For the best experience, use Microsoft Edge with AdGuard.",
 
-    "Microsoft Edge + AdGuard Extension"
+"Some movie websites may require a VPN depending on your region."
+
+],
+
+pw:[
+
+{
+name:"PWTHOR",
+url:"https://pwthor.live",
+status:"Working",
+recommended:true
+},
+
+{
+name:"StudyStark",
+url:"http://StudyStark.in",
+status:"Working"
+},
+
+{
+name:"StudyRatna",
+url:"http://StudyRatna.cc",
+status:"Working"
+},
+
+{
+name:"RareStudy",
+url:"https://rarestudy.site",
+status:"Working"
+},
+
+{
+name:"VedStudy",
+url:"http://vedstudy.com",
+status:"Working"
+},
+
+{
+name:"StudyRays",
+url:"http://StudyRays.cc",
+status:"Server 3 Recommended"
+}
+
+],
+
+unacademy:[
+
+{
+name:"StudyUK Official",
+url:"https://studyuk.online/offline",
+status:"Official"
+}
+
+],
+
+both:[
+
+{
+name:"StudyBeePro",
+url:"http://studybeepro.in",
+status:"PW + Unacademy"
+},
+
+{
+name:"PrimeStudy",
+url:"http://Primestudy.site",
+status:"PW + Unacademy"
+}
+
+],
+
+movies:[
+
+{
+name:"YupFlix",
+url:"https://yupflix.com/#",
+status:"VPN if Required"
+},
+
+{
+name:"PVR Play",
+url:"https://pvrplay.in",
+status:"Working"
+},
+
+{
+name:"Movies4U",
+url:"https://movies4u.gift/",
+status:"VPN if Required"
+}
+
+]
 
 };
-
-/* ============================
-   Announcement
-============================ */
-
-const ANNOUNCEMENTS = [
-
-"⚠️ I am NOT the owner of any listed website.",
-
-"🛠️ If any website is temporarily down, please wait. It may be under maintenance.",
-
-"📚 If one website isn't working, try another available website.",
-
-"📱 Use Microsoft Edge + AdGuard Extension for the best experience."
-
-];
-
-/* ============================
-   PW Websites
-============================ */
-
-const PW = [
-
-{
-
-name:"PWTHOR",
-
-url:"https://pwthor.live/",
-
-status:"Open",
-
-recommended:false
-
-},
-
-{
-
-name:"StudyStark",
-
-url:"http://StudyStark.in",
-
-status:"Open",
-
-recommended:false
-
-},
-
-{
-
-name:"StudyRatna",
-
-url:"http://StudyRatna.cc",
-
-status:"Open",
-
-recommended:true
-
-},
-
-{
-
-name:"RareStudy",
-
-url:"https://rarestudy.site",
-
-status:"Key Generation",
-
-recommended:false
-
-},
-
-{
-
-name:"VedStudy",
-
-url:"http://vedstudy.com",
-
-status:"Key Generation",
-
-recommended:false
-
-},
-
-{
-
-name:"StudyRays",
-
-url:"http://StudyRays.cc",
-
-status:"Server 3",
-
-recommended:false
-
-}
-
-];
-
-/* ============================
-   Unacademy Websites
-============================ */
-
-const UNACADEMY = [
-
-{
-
-name:"StudyBeePro",
-
-url:"http://studybeepro.in",
-
-status:"Login",
-
-recommended:false
-
-},
-
-{
-
-name:"PrimeStudy",
-
-url:"http://Primestudy.site",
-
-status:"Login",
-
-recommended:false
-
-},
-
-{
-
-name:"StudyUK",
-
-url:"https://studyuk.online/offline",
-
-status:"Open",
-
-recommended:true
-
-}
-
-];
