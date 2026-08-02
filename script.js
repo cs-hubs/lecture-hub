@@ -1,28 +1,85 @@
-/* ===================================
-   CS INFORMATION
-   Premium Lecture Hub
-=================================== */
-
-// ---------- Containers ----------
+// =======================================
+// CS INFORMATION v2.1 Premium
+// =======================================
 
 const pwContainer = document.getElementById("pwContainer");
 const unacademyContainer = document.getElementById("unacademyContainer");
+const bothContainer = document.getElementById("bothContainer");
+const moviesContainer = document.getElementById("moviesContainer");
+const favoriteContainer = document.getElementById("favoriteContainer");
 const announcementBox = document.getElementById("announcementBox");
 const search = document.getElementById("search");
+const themeToggle = document.getElementById("themeToggle");
+const toast = document.getElementById("toast");
 
-// ---------- Announcement ----------
+document.getElementById("year").textContent =
+new Date().getFullYear();
 
-ANNOUNCEMENTS.forEach(item => {
+let favourites =
+JSON.parse(localStorage.getItem("favorites")) || [];
 
-announcementBox.innerHTML += `
+// =========================
+// Toast
+// =========================
 
-<p>• ${item}</p>
+function showToast(text){
 
-`;
+toast.innerHTML = text;
 
-});
+toast.style.display = "block";
 
-// ---------- Card Generator ----------
+setTimeout(()=>{
+
+toast.style.display="none";
+
+},2500);
+
+}
+
+// =========================
+// Copy Link
+// =========================
+
+function copyLink(link){
+
+navigator.clipboard.writeText(link);
+
+showToast("✅ Link Copied");
+
+}
+
+// =========================
+// Favourite
+// =========================
+
+function addFavourite(name){
+
+if(favourites.includes(name)){
+
+showToast("⭐ Already Added");
+
+return;
+
+}
+
+favourites.push(name);
+
+localStorage.setItem(
+
+"favorites",
+
+JSON.stringify(favourites)
+
+);
+
+showToast("❤️ Added to Favourite");
+
+renderFavourite();
+
+}
+// =========================
+// Render Cards
+// =========================
 
 function createCard(site){
 
@@ -30,42 +87,44 @@ return `
 
 <div class="card">
 
+<div class="status">
+
+${site.status}
+
+</div>
+
 <h3>
 
 ${site.name}
 
-${site.recommended ? "⭐" : ""}
+${site.recommended ? " ⭐" : ""}
 
 </h3>
-
-<p>
-
-Status :
-<strong>${site.status}</strong>
-
-</p>
 
 <div class="buttons">
 
 <a
-
 class="openBtn"
-
-target="_blank"
-
-href="${site.url}">
+href="${site.url}"
+target="_blank">
 
 Open Website
 
 </a>
 
 <button
-
 class="copyBtn"
-
 onclick="copyLink('${site.url}')">
 
 Copy Link
+
+</button>
+
+<button
+class="favBtn"
+onclick="addFavourite('${site.name}')">
+
+⭐ Favourite
 
 </button>
 
@@ -77,39 +136,217 @@ Copy Link
 
 }
 
-// ---------- Load PW ----------
+// =========================
+// Load Sections
+// =========================
 
-PW.forEach(site=>{
+function loadCards(){
 
-pwContainer.innerHTML += createCard(site);
+pwContainer.innerHTML="";
+
+unacademyContainer.innerHTML="";
+
+bothContainer.innerHTML="";
+
+moviesContainer.innerHTML="";
+
+DATA.pw.forEach(
+
+item=>pwContainer.innerHTML+=createCard(item)
+
+);
+
+DATA.unacademy.forEach(
+
+item=>unacademyContainer.innerHTML+=createCard(item)
+
+);
+
+DATA.both.forEach(
+
+item=>bothContainer.innerHTML+=createCard(item)
+
+);
+
+DATA.movies.forEach(
+
+item=>moviesContainer.innerHTML+=createCard(item)
+
+);
+
+announcementBox.innerHTML="";
+
+DATA.announcement.forEach(msg=>{
+
+announcementBox.innerHTML+=`<p>• ${msg}</p>`;
 
 });
 
-// ---------- Load Unacademy ----------
+}
 
-UNACADEMY.forEach(site=>{
+loadCards();
+// =========================
+// Favourite Section
+// =========================
 
-unacademyContainer.innerHTML += createCard(site);
+function renderFavourite(){
+
+favoriteContainer.innerHTML="";
+
+const allSites=[
+
+...DATA.pw,
+
+...DATA.unacademy,
+
+...DATA.both,
+
+...DATA.movies
+
+];
+
+const favSites=allSites.filter(
+
+site=>favourites.includes(site.name)
+
+);
+
+if(favSites.length===0){
+
+favoriteContainer.innerHTML=`
+
+<div class="card">
+
+<h3>No Favourite Yet</h3>
+
+<p>Add your favourite websites by clicking the ⭐ Favourite button.</p>
+
+</div>
+
+`;
+
+return;
+
+}
+
+favSites.forEach(site=>{
+
+favoriteContainer.innerHTML+=`
+
+<div class="card">
+
+<div class="status">
+
+Favourite
+
+</div>
+
+<h3>
+
+${site.name}
+
+</h3>
+
+<div class="buttons">
+
+<a
+
+class="openBtn"
+
+href="${site.url}"
+
+target="_blank">
+
+Open
+
+</a>
+
+<button
+
+class="copyBtn"
+
+onclick="copyLink('${site.url}')">
+
+Copy
+
+</button>
+
+<button
+
+class="favBtn"
+
+onclick="removeFavourite('${site.name}')">
+
+Remove
+
+</button>
+
+</div>
+
+</div>
+
+`;
 
 });
 
-// ---------- Copy Link ----------
+}
 
-function copyLink(link){
+function removeFavourite(name){
 
-navigator.clipboard.writeText(link);
+favourites=favourites.filter(
 
-alert("Website link copied.");
+item=>item!==name
 
-  }
-/* ===================================
-   Part 2
-   Theme + Search + Loader
-=================================== */
+);
 
-// ---------- Theme ----------
+localStorage.setItem(
 
-const themeToggle = document.getElementById("themeToggle");
+"favorites",
+
+JSON.stringify(favourites)
+
+);
+
+renderFavourite();
+
+showToast("❌ Removed");
+
+}
+
+renderFavourite();
+
+// =========================
+// Search
+// =========================
+
+search.addEventListener(
+
+"input",
+
+()=>{
+
+const value=search.value.toLowerCase();
+
+document.querySelectorAll(".card").forEach(card=>{
+
+const text=card.innerText.toLowerCase();
+
+card.style.display=
+
+text.includes(value)
+
+? "block"
+
+: "none";
+
+});
+
+}
+
+);
+// =========================
+// Dark / Light Mode
+// =========================
 
 const savedTheme = localStorage.getItem("theme");
 
@@ -121,7 +358,7 @@ themeToggle.innerHTML="☀️";
 
 }
 
-themeToggle.addEventListener("click",()=>{
+themeToggle.onclick=()=>{
 
 document.body.classList.toggle("light");
 
@@ -139,138 +376,27 @@ themeToggle.innerHTML="🌙";
 
 }
 
-});
+};
 
-// ---------- Search ----------
+// =========================
+// Scroll To Top
+// =========================
 
-search.addEventListener("input",()=>{
-
-const value=search.value.toLowerCase();
-
-document.querySelectorAll(".card").forEach(card=>{
-
-const text=card.innerText.toLowerCase();
-
-card.style.display=text.includes(value)
-? "block"
-: "none";
-
-});
-
-});
-
-// ---------- Loader ----------
-
-window.addEventListener("load",()=>{
-
-const loader=document.getElementById("loader");
-
-setTimeout(()=>{
-
-loader.style.opacity="0";
-
-loader.style.pointerEvents="none";
-
-loader.style.transition=".5s";
-
-setTimeout(()=>{
-
-loader.style.display="none";
-
-},500);
-
-},800);
-
-});
-
-// ---------- Current Year ----------
-
-const year=document.createElement("small");
-
-year.innerHTML=`<br>© ${new Date().getFullYear()} CS INFORMATION`;
-
-document.querySelector("footer").appendChild(year);
-/* ===================================
-   Part 3
-   Final Features
-=================================== */
-
-// ---------- Favourite ----------
-
-let favourites = JSON.parse(localStorage.getItem("favorites")) || [];
-
-document.querySelectorAll(".card").forEach(card => {
-
-    const favBtn = document.createElement("button");
-
-    favBtn.className = "copyBtn";
-
-    favBtn.innerHTML = "⭐ Favourite";
-
-    favBtn.onclick = () => {
-
-        const website = card.querySelector("h3").innerText;
-
-        if (!favourites.includes(website)) {
-
-            favourites.push(website);
-
-            localStorage.setItem(
-                "favorites",
-                JSON.stringify(favourites)
-            );
-
-            alert("Added to Favourite ⭐");
-
-        } else {
-
-            alert("Already in Favourite");
-
-        }
-
-    };
-
-    card.querySelector(".buttons").appendChild(favBtn);
-
-});
-
-// ---------- Scroll To Top ----------
-
-const topBtn = document.createElement("button");
-
-topBtn.innerHTML = "⬆";
-
-topBtn.id = "topButton";
-
-document.body.appendChild(topBtn);
-
-topBtn.style.cssText = `
-position:fixed;
-right:20px;
-bottom:20px;
-width:55px;
-height:55px;
-border:none;
-border-radius:50%;
-background:#FFD54F;
-color:#111;
-font-size:22px;
-cursor:pointer;
-display:none;
-box-shadow:0 10px 30px rgba(0,0,0,.25);
-z-index:999;
-`;
+const scrollBtn=document.getElementById("scrollTop");
 
 window.addEventListener("scroll",()=>{
 
-topBtn.style.display =
-window.scrollY>300
+scrollBtn.style.display=
+
+window.scrollY>350
+
 ? "block"
+
 : "none";
 
 });
 
-topBtn.onclick=()=>{
+scrollBtn.onclick=()=>{
 
 window.scrollTo({
 
@@ -282,36 +408,22 @@ behavior:"smooth"
 
 };
 
-// ---------- Card Animation ----------
+// =========================
+// Loader
+// =========================
 
-const observer=new IntersectionObserver(entries=>{
+window.addEventListener("load",()=>{
 
-entries.forEach(entry=>{
+setTimeout(()=>{
 
-if(entry.isIntersecting){
+document.getElementById("loader").style.display="none";
 
-entry.target.style.opacity="1";
-
-entry.target.style.transform="translateY(0)";
-
-}
+},1200);
 
 });
 
-});
+// =========================
+// Console
+// =========================
 
-document.querySelectorAll(".card").forEach(card=>{
-
-card.style.opacity="0";
-
-card.style.transform="translateY(30px)";
-
-card.style.transition=".6s";
-
-observer.observe(card);
-
-});
-
-// ---------- Welcome ----------
-
-console.log("🚀 CS INFORMATION Premium Lecture Hub Loaded");
+console.log("🚀 CS INFORMATION v2.1 Premium Loaded");
